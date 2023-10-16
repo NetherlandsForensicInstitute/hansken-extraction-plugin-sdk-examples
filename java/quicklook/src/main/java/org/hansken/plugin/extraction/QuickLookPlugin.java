@@ -64,7 +64,6 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
         // the plugin is deferred at least for one extraction cycle *after* all the other extractions have finished.
         return PluginInfo.builderFor(this)
             .id(new PluginId("nfi.nl", "picture", "QuickLookPluginJava"))
-            .pluginVersion("1.0.0")
             .description("Example Extraction Plugin: This plugin extracts thumbnails from thumbnail.data and " +
                 "index.sqlite found in com.apple.QuickLook.thumbnailcache.")
             .author(author)
@@ -82,10 +81,10 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
 
         // Search for SQLite tables "files" and "thumbnails" where the path matches the current trace
         final SearchTrace filesTrace =
-            searchForTrace(searcher, format("(data.raw.fileType='Tab Separated Values' OR data.raw.fileType='Comma Separated Values') AND path='%s'",
+            searchForTrace(searcher, format("(data.plain.fileType='Tab Separated Values' OR data.raw.fileType='Comma Separated Values') AND path='%s'",
                 getExpectedTracePath(trace, "files")));
         final SearchTrace thumbnailsTrace =
-            searchForTrace(searcher, format("(data.raw.fileType='Tab Separated Values' OR data.raw.fileType='Comma Separated Values') AND path='%s'",
+            searchForTrace(searcher, format("(data.plain.fileType='Tab Separated Values' OR data.raw.fileType='Comma Separated Values') AND path='%s'",
                 getExpectedTracePath(trace, "thumbnails")));
 
         // Parse the found traces of files and thumbnails and add as child traces
@@ -114,15 +113,30 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
     private Map<Integer, TableRow> parseDatabaseTable(final SearchTrace searchTrace) throws IOException {
         final Map<Integer, TableRow> tableRows = new HashMap<>();
 
-        final RandomAccessData data = searchTrace.getData("raw");
+        final RandomAccessData data;
+        if (searchTrace.getDataTypes().contains("plain")) {
+            data = searchTrace.getData("plain");
+        }
+        else {
+            data = searchTrace.getData("raw");
+        }
         final Scanner scanner = new Scanner(new String(data.readNBytes((int) data.remaining())));
-        final String[] keys = scanner.nextLine().split(",");
+        final String[] keys = scanner.nextLine().strip().split("[\t,]");
 
         int idCounter = 1; // QuickLook Files table internal row id starts with index 1!
         while (scanner.hasNext()) {
-            final String nextLine = scanner.nextLine();
+            final String nextLine = scanner.nextLine().strip();
             // Regex matches all commas which are not between quotes
-            final String[] values = nextLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            final String[] values;
+            if (nextLine.contains("\t")) {
+                values = nextLine.split("\t");
+                if (values.length > 15) {
+                    values[16] = "\"" + values[16] + "\"";
+                }
+            }
+            else {
+                values = nextLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            }
             final Map<String, String> properties = IntStream.range(0, keys.length)
                 .boxed()
                 .collect(Collectors.toMap(i -> keys[i], i -> values[i]));
@@ -130,7 +144,6 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
             tableRows.put(idCounter, new TableRow(properties));
             idCounter++;
         }
-
         return tableRows;
     }
 
@@ -144,7 +157,7 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
             final TableRow fileInfo = getFileInfo(files, thumbnailInfo, unusedFileIndexes);
 
             addChildTrace(trace, thumbnailInfo, fileInfo,
-                parseFileInfoPlist(searcher, fileInfo),
+                parseFileInfoPlist(searcher, fileInfo, getIntProperty(thumbnailInfo, "file_id") - 1),
                 getBufferedImage(thumbnailsData, thumbnailInfo), childIndex);
 
             childIndex++;
@@ -154,7 +167,7 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
         // es which have no thumbnail data available anymore
         for (final Integer index : unusedFileIndexes) {
             final TableRow fileInfo = files.get(index);
-            addChildTrace(trace, null, fileInfo, parseFileInfoPlist(searcher, fileInfo), null, childIndex);
+            addChildTrace(trace, null, fileInfo, parseFileInfoPlist(searcher, fileInfo, index - 1), null, childIndex);
             childIndex++;
         }
     }
@@ -214,14 +227,20 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
         return convertRGBAToABGR(bufferRGBA);
     }
 
-    private Map<String, String> parseFileInfoPlist(final TraceSearcher searcher, final TableRow fileInfo)
+    private Map<String, String> parseFileInfoPlist(final TraceSearcher searcher, final TableRow fileInfo, final int rowIndex)
         throws ExecutionException, InterruptedException, IOException {
         final Map<String, String> result = new HashMap<>();
 
-        // Get the plist trace by its name which is known by the fileInfo property "version"
-        final String plistName = fileInfo.getProperty("version")
-            .replace("<binary ", "")
-            .replace(">", "");
+        final String version = fileInfo.getProperty("version");
+        final String plistName;
+        if (version.contains("[")) {
+            plistName = "RowIndex: " + rowIndex + ", ColumnName: version";
+        }
+        else {
+            // Get the plist trace by its name which is known by the fileInfo property "version"
+            plistName = version.replace("<binary ", "")
+                .replace(">", "");
+        }
         final SearchTrace plistTrace = searchForTrace(searcher,
             format("data.raw.fileType='Binary Plist' AND name='%s'", plistName));
         final RandomAccessData plistData = plistTrace.getData("plain");
