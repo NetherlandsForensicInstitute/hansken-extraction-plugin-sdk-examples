@@ -12,13 +12,13 @@ decorator==5.1.1
     # via hansken
 docker==7.1.0
     # via hansken-extraction-plugin
-grpcio==1.65.4
+grpcio==1.66.1
     # via hansken-extraction-plugin
 hansken==2024.7.15
     # via hansken-extraction-plugin
 hansken-extraction-plugin==0.8.1
     # via -r requirements.in
-idna==3.7
+idna==3.8
     # via requests
 ijson==3.3.0
     # via hansken
@@ -34,14 +34,16 @@ logbook==1.7.0.post0
     # via
     #   hansken
     #   hansken-extraction-plugin
-more-itertools==10.3.0
+more-itertools==10.4.0
     # via hansken
-protobuf==5.27.3
+protobuf==5.28.0
     # via hansken-extraction-plugin
 python-dateutil==2.9.0.post0
     # via hansken
 pytz==2024.1
     # via hansken-extraction-plugin
+pyyaml==6.0.2
+    # via -r requirements.in
 requests==2.32.3
     # via
     #   docker

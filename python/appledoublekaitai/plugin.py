@@ -26,8 +26,7 @@ class Plugin(ExtractionPlugin):
         return plugin_info
 
     def process(self, trace, data_context):
-        with trace.open(data_type='text', mode='wb') as writer:
-            kaitai_utils.write_to_json(trace.open(), writer, AppleSingleDouble)
+        kaitai_utils.write_kaitai_to_trace(trace)
 
 
 if __name__ == '__main__':
