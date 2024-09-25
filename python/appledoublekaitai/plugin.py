@@ -4,7 +4,6 @@ from hansken_extraction_plugin.runtime.extraction_plugin_runner import run_with_
 from logbook import Logger
 
 import kaitai_utils
-from structs.apple_single_double import AppleSingleDouble
 
 
 log = Logger(__name__)
@@ -13,10 +12,14 @@ log = Logger(__name__)
 class Plugin(ExtractionPlugin):
 
     def plugin_info(self):
+        file_format = kaitai_utils.get_plugin_title_from_metadata()
+        no_space_plugin_name = file_format.replace(' ', '_')
+        plugin_name = ''.join(letter for letter in no_space_plugin_name if letter.isalnum() or letter == '_')
+        plugin_description = f'Extracts "{file_format}" files and attaches its low-level data structure as a JSON text to the trace.'
         plugin_info = PluginInfo(
-            id=PluginId(domain='nfi.nl', category='extract', name='apple_double_kaitai_plugin'),
+            id=PluginId(domain='nfi.nl', category='extract', name=plugin_name),
             version='0.0.1',
-            description='Parses Apple double files using Kaitai',
+            description=plugin_description,
             author=Author('Team Formats', 'formats@nfi.nl', 'Netherlands Forensic Institute'),
             maturity=MaturityLevel.PROOF_OF_CONCEPT,
             webpage_url='',  # e.g. url to the code repository of your plugin
