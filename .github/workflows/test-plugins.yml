@@ -34,7 +34,13 @@ jobs:
         pip install tox pip-tools
 
     - name: Test example plugin Python AppleDouble Kaitai
-      run: cd python/appledoublekaitai && tox
+      run: |
+        cd python/appledoublekaitai
+        curl -LO https://github.com/kaitai-io/kaitai_struct_compiler/releases/download/0.10/kaitai-struct-compiler-0.10.zip
+        unzip kaitai-struct-compiler-0.10.zip
+        cd structs && ../kaitai-struct-compiler-0.10/bin/kaitai-struct-compiler *.ksy -t python --python-package structs --read-pos
+        cd ..
+        tox
 
     - name: Test example plugin Python chat
       run: cd python/chat && tox
