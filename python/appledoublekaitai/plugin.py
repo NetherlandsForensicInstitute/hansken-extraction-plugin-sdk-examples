@@ -5,8 +5,9 @@ from logbook import Logger
 
 import kaitai_utils
 
-
 log = Logger(__name__)
+
+BYTE_ARRAY_LENGTH = 256
 
 
 class Plugin(ExtractionPlugin):
@@ -18,18 +19,21 @@ class Plugin(ExtractionPlugin):
         plugin_description = f'Extracts "{file_format}" files and attaches its low-level data structure as a JSON text to the trace.'
         plugin_info = PluginInfo(
             id=PluginId(domain='nfi.nl', category='extract', name=plugin_name),
-            version='0.0.1',
+            version='1.0.0',
             description=plugin_description,
             author=Author('Team Formats', 'formats@nfi.nl', 'Netherlands Forensic Institute'),
             maturity=MaturityLevel.PROOF_OF_CONCEPT,
             webpage_url='',  # e.g. url to the code repository of your plugin
-            matcher='$data.fileType=AppleDouble',  # add the query for the types of traces your plugin should match
+            matcher='$data.fileType=AppleDouble',
             license='Apache License 2.0'
         )
         return plugin_info
 
     def process(self, trace, data_context):
-        kaitai_utils.write_kaitai_to_trace(trace)
+        # byte arrays shorter than byte_array_length are written as hex in the resulting JSON, longer ones are written
+        # to child traces. Change it if necessary!
+
+        kaitai_utils.write_kaitai_to_trace(trace, BYTE_ARRAY_LENGTH)
 
 
 if __name__ == '__main__':
