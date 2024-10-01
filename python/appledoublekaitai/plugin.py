@@ -4,30 +4,34 @@ from hansken_extraction_plugin.runtime.extraction_plugin_runner import run_with_
 from logbook import Logger
 
 import kaitai_utils
-from structs.apple_single_double import AppleSingleDouble
-
 
 log = Logger(__name__)
+
+BYTE_ARRAY_LENGTH = 256
 
 
 class Plugin(ExtractionPlugin):
 
     def plugin_info(self):
+        file_format = kaitai_utils.get_plugin_title_from_metadata()
+        plugin_description = f'Extracts "{file_format}" files and attaches its low-level data structure as a JSON text to the trace.'
         plugin_info = PluginInfo(
             id=PluginId(domain='nfi.nl', category='extract', name='apple_double_kaitai_plugin'),
-            version='0.0.1',
-            description='Parses Apple double files using Kaitai',
+            version='1.1.0',
+            description=plugin_description,
             author=Author('Team Formats', 'formats@nfi.nl', 'Netherlands Forensic Institute'),
             maturity=MaturityLevel.PROOF_OF_CONCEPT,
             webpage_url='',  # e.g. url to the code repository of your plugin
-            matcher='$data.fileType=AppleDouble',  # add the query for the types of traces your plugin should match
+            matcher='$data.fileType=AppleDouble',
             license='Apache License 2.0'
         )
         return plugin_info
 
     def process(self, trace, data_context):
-        with trace.open(data_type='text', mode='wb') as writer:
-            kaitai_utils.write_to_json(trace.open(), writer, AppleSingleDouble)
+        # byte arrays shorter than byte_array_length are written as hex in the resulting JSON, longer ones are written
+        # to child traces. Change it if necessary!
+
+        kaitai_utils.write_kaitai_to_trace(trace, BYTE_ARRAY_LENGTH)
 
 
 if __name__ == '__main__':
