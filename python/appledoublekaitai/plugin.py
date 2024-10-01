@@ -14,12 +14,10 @@ class Plugin(ExtractionPlugin):
 
     def plugin_info(self):
         file_format = kaitai_utils.get_plugin_title_from_metadata()
-        no_space_plugin_name = file_format.replace(' ', '_')
-        plugin_name = ''.join(letter for letter in no_space_plugin_name if letter.isalnum() or letter == '_')
         plugin_description = f'Extracts "{file_format}" files and attaches its low-level data structure as a JSON text to the trace.'
         plugin_info = PluginInfo(
-            id=PluginId(domain='nfi.nl', category='extract', name=plugin_name),
-            version='1.0.0',
+            id=PluginId(domain='nfi.nl', category='extract', name='apple_double_kaitai_plugin'),
+            version='1.1.0',
             description=plugin_description,
             author=Author('Team Formats', 'formats@nfi.nl', 'Netherlands Forensic Institute'),
             maturity=MaturityLevel.PROOF_OF_CONCEPT,
