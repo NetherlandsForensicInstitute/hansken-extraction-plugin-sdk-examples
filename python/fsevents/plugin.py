@@ -764,7 +764,7 @@ class FSEventsPlugin(ExtractionPlugin):
 
     def plugin_info(self) -> PluginInfo:
         log.info('pluginInfo request')
-        plugin_info = PluginInfo(id=PluginId('nfi.nl', 'events', 'FSEventsPluginPython'),
+        plugin_info = PluginInfo(id=PluginId('nfi.nl', 'extract', 'FSEvents'),
                                  version='1.0.0',
                                  description='Example Extraction Plugin: Parses apple filesystem events',
                                  author=Author('MoDS', 'mods@holmes.nl', 'NFI'),
