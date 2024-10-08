@@ -10,6 +10,7 @@ import org.hansken.plugin.extraction.api.ExtractionPlugin;
 import org.hansken.plugin.extraction.api.MaturityLevel;
 import org.hansken.plugin.extraction.api.PluginId;
 import org.hansken.plugin.extraction.api.PluginInfo;
+import org.hansken.plugin.extraction.api.PluginResources;
 import org.hansken.plugin.extraction.api.RandomAccessData;
 import org.hansken.plugin.extraction.api.Trace;
 import org.slf4j.Logger;

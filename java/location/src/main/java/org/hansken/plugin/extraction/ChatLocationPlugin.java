@@ -8,6 +8,7 @@ import org.hansken.plugin.extraction.api.MaturityLevel;
 import org.hansken.plugin.extraction.api.MetaExtractionPlugin;
 import org.hansken.plugin.extraction.api.PluginId;
 import org.hansken.plugin.extraction.api.PluginInfo;
+import org.hansken.plugin.extraction.api.PluginResources;
 import org.hansken.plugin.extraction.api.Trace;
 
 // an example plugin using a very advanced algorithm for extracting and pinpointing secret locations

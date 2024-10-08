@@ -17,6 +17,7 @@ import org.hansken.plugin.extraction.api.DataContext;
 import org.hansken.plugin.extraction.api.ExtractionPlugin;
 import org.hansken.plugin.extraction.api.PluginId;
 import org.hansken.plugin.extraction.api.PluginInfo;
+import org.hansken.plugin.extraction.api.PluginResources;
 import org.hansken.plugin.extraction.api.Trace;
 
 /**
@@ -49,7 +50,7 @@ public final class SecretsPlugin implements ExtractionPlugin {
             .webpageUrl("https://hansken.org")
             .hqlMatcher("$data.size>0 AND file.extension=peb")
             .id(new PluginId(TOOL_DOMAIN, TOOL_CATEGORY, TOOL_NAME))
-	    .resources(PluginResources.builder().maximumWorkers(12).build())
+            .resources(PluginResources.builder().maximumWorkers(12).build())
             .license(TOOL_LICENSE)
             .build();
     }

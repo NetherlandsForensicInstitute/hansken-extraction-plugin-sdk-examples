@@ -7,6 +7,7 @@ import org.hansken.plugin.extraction.api.MaturityLevel;
 import org.hansken.plugin.extraction.api.MetaExtractionPlugin;
 import org.hansken.plugin.extraction.api.PluginId;
 import org.hansken.plugin.extraction.api.PluginInfo;
+import org.hansken.plugin.extraction.api.PluginResources;
 import org.hansken.plugin.extraction.api.Trace;
 import org.hansken.plugin.extraction.api.Vector;
 
@@ -37,7 +38,7 @@ public class VectorPlugin extends MetaExtractionPlugin {
             .webpageUrl("https://hansken.org")
             .hqlMatcher("picture.width>0 picture.height>0")
             .id(new PluginId(TOOL_DOMAIN, TOOL_CATEGORY, TOOL_NAME))
-	    .resources(PluginResources.builder().maximumWorkers(12).build())
+            .resources(PluginResources.builder().maximumWorkers(12).build())
             .license(TOOL_LICENSE)
             .build();
     }
