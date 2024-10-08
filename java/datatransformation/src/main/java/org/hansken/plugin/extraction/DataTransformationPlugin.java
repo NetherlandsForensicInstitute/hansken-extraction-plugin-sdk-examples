@@ -43,6 +43,7 @@ public final class DataTransformationPlugin implements ExtractionPlugin {
             .webpageUrl("https://hansken.org")
             .hqlMatcher("type=file AND $data.mimeClass=text")
             .id(new PluginId(TOOL_DOMAIN, TOOL_CATEGORY, TOOL_NAME))
+	    .resources(PluginResources.builder().maximumWorkers(12).build())
             .license(TOOL_LICENSE)
             .build();
     }

@@ -61,6 +61,7 @@ public class OCRPlugin implements ExtractionPlugin {
         final PluginResources resources = PluginResources.builder()
             .maximumCpu(4f)
             .maximumMemory(4096)
+	    .maximumWorkers(2)
             .build();
 
         return PluginInfo.builderFor(this)

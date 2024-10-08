@@ -1,4 +1,4 @@
-FROM openjdk:11.0.9.1-jre-buster
+FROM eclipse-temurin:21.0.4_7-jre-noble
 
 ADD target/*.tar.gz ./
 

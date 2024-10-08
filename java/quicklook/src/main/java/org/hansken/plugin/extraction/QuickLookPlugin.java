@@ -72,6 +72,7 @@ public final class QuickLookPlugin implements DeferredExtractionPlugin {
             .webpageUrl("https://hansken.org")
             // TODO: HANSKEN-15568: Should also match "AND file.path:com.apple.QuickLook.thumbnailcache"
             .hqlMatcher("file.name=thumbnails.data AND $data.type=raw")
+	    .resources(PluginResources.builder().maximumWorkers(12).build())
             .license("Apache License, Version 2.0")
             .build();
     }
