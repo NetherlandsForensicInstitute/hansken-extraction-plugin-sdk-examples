@@ -43,6 +43,7 @@ public final class ChatLocationPlugin extends MetaExtractionPlugin {
             .webpageUrl("https://hansken.org")
             .hqlMatcher("type=chatMessage AND chatMessage.message=*")
             .id(new PluginId(TOOL_DOMAIN, TOOL_CATEGORY, TOOL_NAME))
+	    .resources(PluginResources.builder().maximumWorkers(12).build())
             .license(TOOL_LICENSE)
             .build();
     }

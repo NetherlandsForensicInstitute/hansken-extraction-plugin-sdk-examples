@@ -41,6 +41,7 @@ public final class DataDigestPlugin implements ExtractionPlugin {
             .webpageUrl("https://hansken.org")
             .hqlMatcher("$data.type=*")
             .id(new PluginId(TOOL_DOMAIN, TOOL_CATEGORY, TOOL_NAME))
+	    .resources(PluginResources.builder().maximumWorkers(12).build())
             .license(TOOL_LICENSE)
             .build();
     }
