@@ -64,3 +64,5 @@ buildNumber.properties
 
 # docker container id files
 *.cid
+
+.docker
