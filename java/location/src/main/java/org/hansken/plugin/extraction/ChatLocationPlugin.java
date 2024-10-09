@@ -8,6 +8,7 @@ import org.hansken.plugin.extraction.api.MaturityLevel;
 import org.hansken.plugin.extraction.api.MetaExtractionPlugin;
 import org.hansken.plugin.extraction.api.PluginId;
 import org.hansken.plugin.extraction.api.PluginInfo;
+import org.hansken.plugin.extraction.api.PluginResources;
 import org.hansken.plugin.extraction.api.Trace;
 
 // an example plugin using a very advanced algorithm for extracting and pinpointing secret locations
@@ -43,6 +44,7 @@ public final class ChatLocationPlugin extends MetaExtractionPlugin {
             .webpageUrl("https://hansken.org")
             .hqlMatcher("type=chatMessage AND chatMessage.message=*")
             .id(new PluginId(TOOL_DOMAIN, TOOL_CATEGORY, TOOL_NAME))
+	    .resources(PluginResources.builder().maximumWorkers(12).build())
             .license(TOOL_LICENSE)
             .build();
     }

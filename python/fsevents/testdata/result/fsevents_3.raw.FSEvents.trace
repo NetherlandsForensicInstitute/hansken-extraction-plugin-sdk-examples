@@ -4,7 +4,9 @@
     "name" : "test-input-trace",
     "path" : "/test-input-trace",
     "data" : {
-      "fileType" : "GnuZip"
+      "raw" : {
+        "fileType" : "GnuZip"
+      }
     },
     "eventLog" : {
       "application" : "fseventsd"

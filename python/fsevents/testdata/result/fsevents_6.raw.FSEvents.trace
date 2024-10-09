@@ -4,7 +4,9 @@
     "name" : "test-input-trace",
     "path" : "/test-input-trace",
     "data" : {
-      "fileType" : "GnuZip"
+      "raw" : {
+        "fileType" : "GnuZip"
+      }
     },
     "eventLog" : {
       "application" : "fseventsd"
@@ -18,8 +20,8 @@
     {
       "trace" : {
         "id" : "0-0",
-        "name" : "00000000009ff3f5 (10482677)",
-        "path" : "/test-input-trace/00000000009ff3f5 (10482677)",
+        "name" : "00000000009fda97 (10476183)",
+        "path" : "/test-input-trace/00000000009fda97 (10476183)",
         "event" : {
           "application" : "fseventsd",
           "createdOn" : "22-02-2021T12:00:00",
@@ -31,8 +33,8 @@
     {
       "trace" : {
         "id" : "0-1",
-        "name" : "00000000009ff3f6 (10482678)",
-        "path" : "/test-input-trace/00000000009ff3f6 (10482678)",
+        "name" : "00000000009fda98 (10476184)",
+        "path" : "/test-input-trace/00000000009fda98 (10476184)",
         "event" : {
           "application" : "fseventsd",
           "createdOn" : "22-02-2021T12:00:00",
