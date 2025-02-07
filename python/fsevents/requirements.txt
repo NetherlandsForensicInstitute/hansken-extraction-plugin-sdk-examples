@@ -1,3 +1,5 @@
+--index-url https://nexus.dev.holmes.nl/repository/pypi-all/simple
+
 certifi==2025.1.31
     # via requests
 charset-normalizer==3.4.1
