@@ -10,6 +10,6 @@ for i in "${!reqs[@]}"; do
   plugin=$(dirname "${req}")
   echo "[$((i + 1))/${#reqs[@]}] updating plugin $(basename "${plugin}")..."
   sed -i "s/hansken-extraction-plugin==.*/hansken-extraction-plugin==${version}/" "${req}"
-  (cd "${plugin}"; pip-compile --no-header --quiet)
+  (cd "${plugin}"; pip-compile --no-header --quiet --strip-extras)
 done
 echo "DONE"
