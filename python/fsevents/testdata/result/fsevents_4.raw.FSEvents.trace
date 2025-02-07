@@ -1,19 +1,4 @@
 {
-  "trace" : {
-    "id" : "0",
-    "name" : "test-input-trace",
-    "path" : "/test-input-trace",
-    "data" : {
-      "raw" : {
-        "fileType" : "GnuZip"
-      }
-    },
-    "eventLog" : {
-      "application" : "fseventsd"
-    },
-    "file" : {
-      "modifiedOn" : "22-02-2021T12:00:00",
-      "path" : "fseventsd"
-    }
-  }
+  "class" : "java.lang.IllegalStateException",
+  "message" : "Stream is already completed, no further calls are allowed"
 }

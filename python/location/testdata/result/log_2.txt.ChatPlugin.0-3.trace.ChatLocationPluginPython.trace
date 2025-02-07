@@ -1,15 +1,4 @@
 {
-  "trace" : {
-    "id" : "0-3",
-    "name" : "message 3",
-    "path" : "/test-input-trace",
-    "chatMessage" : {
-      "application" : "DemoApp",
-      "from" : "Adama",
-      "message" : "geen idee",
-      "to" : [
-        "Starbuck"
-      ]
-    }
-  }
+  "class" : "java.lang.IllegalStateException",
+  "message" : "Stream is already completed, no further calls are allowed"
 }
