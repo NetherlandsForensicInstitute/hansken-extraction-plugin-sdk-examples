@@ -1,9 +1,9 @@
 # this file contains all recorded run profiles for processing test-input-trace.
 # this information can be useful when optimizing the plugins performance.
-duration: 0.0078050990123301744
+duration: 0.0021552669968514238
 rpc_begin_child_count: 8
-rpc_begin_child_duration: 0.0011247360380366445
+rpc_begin_child_duration: 3.627799997047987E-4
 rpc_enrich_count: 9
-rpc_enrich_duration: 0.0015980120515450835
+rpc_enrich_duration: 5.920880066696554E-4
 rpc_finish_child_count: 8
-rpc_finish_child_duration: 9.091160027310252E-4
+rpc_finish_child_duration: 2.3078500089468434E-4
