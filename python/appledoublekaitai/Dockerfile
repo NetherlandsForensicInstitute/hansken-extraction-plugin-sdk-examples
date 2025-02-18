@@ -41,5 +41,5 @@ COPY --from=builder /structs/ /app/structs/
 COPY *.py /app/
 WORKDIR /app
 EXPOSE 8999
-ENTRYPOINT ["serve_plugin", "-vv"]
+ENTRYPOINT ["serve_plugin", "-v"]
 CMD ["/app/plugin.py", "8999"]
