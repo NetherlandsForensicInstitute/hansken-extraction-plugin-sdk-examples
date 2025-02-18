@@ -4,7 +4,7 @@ This repository contains example setup and implementations of extraction plugins
 implementations of the API, for different languages. These are contained in the directories named as that language.
 There you can find README files specific to that implementation. Or use the links below:
 
-* [Java Extraction Plugins](java/README.md)
+* [Ja va Extraction Plugins](java/README.md)
 
 * [Python Extraction Plugins](python/README.md)
 
