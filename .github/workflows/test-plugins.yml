@@ -63,26 +63,26 @@ jobs:
       run: cd python/secrets && tox
 
     - name: Test example plugin Java chat
-      run: cd java/chat; mvn verify -U
+      run: cd java/chat; mvn verify
 
     - name: Test example plugin Java datadigest
-      run: cd java/datadigest; mvn verify -U
+      run: cd java/datadigest; mvn verify
 
     - name: Test example plugin Java datatransformation
-      run: cd java/datatransformation; mvn verify -U
+      run: cd java/datatransformation; mvn verify
 
     - name: Test example plugin Java location
-      run: cd java/location; mvn verify -U
+      run: cd java/location; mvn verify
 
     - name: Test example plugin Java ocr
-      run: cd java/ocr; mvn verify -U
+      run: cd java/ocr; mvn verify
 
     - name: Test example plugin Java quicklook
-      run: cd java/quicklook; mvn verify -U
+      run: cd java/quicklook; mvn verify
 
     - name: Test example plugin Java secrets
-      run: cd java/secrets; mvn verify -U
+      run: cd java/secrets; mvn verify
 
     - name: Test example plugin Java vector
-      run: cd java/vector; mvn verify -U
+      run: cd java/vector; mvn verify
 
