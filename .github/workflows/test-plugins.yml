@@ -20,6 +20,7 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
+        cache: maven
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
@@ -62,26 +63,26 @@ jobs:
       run: cd python/secrets && tox
 
     - name: Test example plugin Java chat
-      run: cd java/chat; mvn verify
+      run: cd java/chat; mvn verify -U
 
     - name: Test example plugin Java datadigest
-      run: cd java/datadigest; mvn verify
+      run: cd java/datadigest; mvn verify -U
 
     - name: Test example plugin Java datatransformation
-      run: cd java/datatransformation; mvn verify
+      run: cd java/datatransformation; mvn verify -U
 
     - name: Test example plugin Java location
-      run: cd java/location; mvn verify
+      run: cd java/location; mvn verify -U
 
     - name: Test example plugin Java ocr
-      run: cd java/ocr; mvn verify
+      run: cd java/ocr; mvn verify -U
 
     - name: Test example plugin Java quicklook
-      run: cd java/quicklook; mvn verify
+      run: cd java/quicklook; mvn verify -U
 
     - name: Test example plugin Java secrets
-      run: cd java/secrets; mvn verify
+      run: cd java/secrets; mvn verify -U
 
     - name: Test example plugin Java vector
-      run: cd java/vector; mvn verify
+      run: cd java/vector; mvn verify -U
 
