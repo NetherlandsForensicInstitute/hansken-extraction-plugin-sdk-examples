@@ -15,10 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up JDK 21
+    - name: Set up JDK 11
       uses: actions/setup-java@v4
       with:
-        java-version: '21'
+        java-version: '11'
         distribution: 'temurin'
         cache: maven
 
@@ -63,7 +63,7 @@ jobs:
       run: cd python/secrets && tox
 
     - name: Test example plugin Java chat
-      run: cd java/chat; mvn verify -e -U
+      run: cd java/chat; mvn verify
 
     - name: Test example plugin Java datadigest
       run: cd java/datadigest; mvn verify
