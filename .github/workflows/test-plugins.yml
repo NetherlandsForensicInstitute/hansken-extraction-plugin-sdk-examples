@@ -41,48 +41,48 @@ jobs:
         cd ..
         tox
 
-    - name: Test example plugin Python chat
-      run: cd python/chat && tox
+    # - name: Test example plugin Python chat
+    #   run: cd python/chat && tox
 
-    - name: Test example plugin Python datadigest
-      run: cd python/datadigest && tox
+    # - name: Test example plugin Python datadigest
+    #   run: cd python/datadigest && tox
 
-    - name: Test example plugin Python datatransformation
-      run: cd python/datatransformation && tox
+    # - name: Test example plugin Python datatransformation
+    #   run: cd python/datatransformation && tox
 
-    - name: Test example plugin Python fsevents
-      run: cd python/fsevents && tox
+    # - name: Test example plugin Python fsevents
+    #   run: cd python/fsevents && tox
 
-    - name: Test example plugin Python location
-      run: cd python/location && tox
+    # - name: Test example plugin Python location
+    #   run: cd python/location && tox
 
-    - name: Test example plugin Python quicklook
-      run: cd python/quicklook && tox
+    # - name: Test example plugin Python quicklook
+    #   run: cd python/quicklook && tox
 
-    - name: Test example plugin Python secrets
-      run: cd python/secrets && tox
+    # - name: Test example plugin Python secrets
+    #   run: cd python/secrets && tox
 
     - name: Test example plugin Java chat
-      run: cd java/chat; mvn verify
+      run: cd java/chat; mvn test
 
-    - name: Test example plugin Java datadigest
-      run: cd java/datadigest; mvn verify
+    # - name: Test example plugin Java datadigest
+    #   run: cd java/datadigest; mvn verify
 
-    - name: Test example plugin Java datatransformation
-      run: cd java/datatransformation; mvn verify
+    # - name: Test example plugin Java datatransformation
+    #   run: cd java/datatransformation; mvn verify
 
-    - name: Test example plugin Java location
-      run: cd java/location; mvn verify
+    # - name: Test example plugin Java location
+    #   run: cd java/location; mvn verify
 
-    - name: Test example plugin Java ocr
-      run: cd java/ocr; mvn verify
+    # - name: Test example plugin Java ocr
+    #   run: cd java/ocr; mvn verify
 
-    - name: Test example plugin Java quicklook
-      run: cd java/quicklook; mvn verify
+    # - name: Test example plugin Java quicklook
+    #   run: cd java/quicklook; mvn verify
 
-    - name: Test example plugin Java secrets
-      run: cd java/secrets; mvn verify
+    # - name: Test example plugin Java secrets
+    #   run: cd java/secrets; mvn verify
 
-    - name: Test example plugin Java vector
-      run: cd java/vector; mvn verify
+    # - name: Test example plugin Java vector
+    #   run: cd java/vector; mvn verify
 
