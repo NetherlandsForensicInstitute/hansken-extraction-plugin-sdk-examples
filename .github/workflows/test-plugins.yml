@@ -62,7 +62,7 @@ jobs:
     # - name: Test example plugin Python secrets
     #   run: cd python/secrets && tox
 
-    - name: Test example plugin Java chat
+    - name: Test example plugin Java chat bla
       run: cd java/chat; mvn test
 
     # - name: Test example plugin Java datadigest
