@@ -35,6 +35,11 @@ Before showing how to get started with a Python plugin, note that a couple of ex
 Each plugin has a couple of configuration files in order to collect the necessary dependencies, and to build and test the plugin.
 They can be used as a reference when implementing your own plugins.
 
+> **IMPORTANT**  
+> When adding a `misc` property, make sure it is in camel case.
+> Properties should always be in camel case.
+> It is important for users that all fields in the data model follow the same standard.
+
 ## Quick start
 
 This guide will show how to build, run and test the first python example: 'ChatPlugin'. The example shows how text files (chat records, containing important evidence) can
