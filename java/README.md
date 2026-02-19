@@ -12,6 +12,11 @@ This package contains a couple of example Extraction Plugins to show you how sim
 7. [DataDigestPlugin (basic data reading)](#DataDigestPlugin)
 8. [VectorPlugin (basic vectors)](#VectorPlugin)
 
+> **IMPORTANT**  
+> When adding a `misc` property, make sure it is in camel case.
+> Properties should always be in camel case.
+> It is important for users that all fields in the data model follow the same standard.
+
 ## ChatPlugin
 
 This plugin parses a simple made-up chat logs into a message tree.
