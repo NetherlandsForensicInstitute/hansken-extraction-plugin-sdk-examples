@@ -37,8 +37,9 @@ They can be used as a reference when implementing your own plugins.
 
 > **IMPORTANT**  
 > When adding a `misc` property, make sure it is in camel case.
-> Properties should always be in camel case.
+> Properties should always be in camel case (camelCase).
 > It is important for users that all fields in the data model follow the same standard.
+> Standardization is essential to ensure consistency when users query the data for searching or for further processing of the data.
 
 ## Quick start
 
