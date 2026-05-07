@@ -26,7 +26,7 @@ more-itertools==10.6.0
     # via hansken
 pillow==11.1.0
     # via -r requirements.in
-protobuf==5.29.3
+protobuf==6.33.5
     # via hansken-extraction-plugin
 python-dateutil==2.9.0.post0
     # via hansken

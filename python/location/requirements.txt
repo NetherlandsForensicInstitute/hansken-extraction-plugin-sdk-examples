@@ -24,7 +24,7 @@ logbook==1.8.0
     #   hansken-extraction-plugin
 more-itertools==10.6.0
     # via hansken
-protobuf==5.29.3
+protobuf==6.33.5
     # via hansken-extraction-plugin
 python-dateutil==2.9.0.post0
     # via hansken
