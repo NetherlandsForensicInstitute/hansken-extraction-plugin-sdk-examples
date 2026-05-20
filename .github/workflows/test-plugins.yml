@@ -57,6 +57,9 @@ jobs:
     - name: Test example plugin Python location
       run: cd python/location && tox
 
+    - name: Test example plugin Python metadeferredchatconversation
+      run: cd python/metadeferredchatconversation && tox
+
     - name: Test example plugin Python quicklook
       run: cd python/quicklook && tox
 

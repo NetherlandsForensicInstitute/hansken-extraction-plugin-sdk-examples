@@ -1,0 +1,13 @@
+{
+  "trace" : {
+    "id" : "0-0",
+    "name" : "conversation 0",
+    "path" : "/test-input-trace",
+    "chatConversation" : {
+      "misc" : {
+        "metaDeferredMessageCount" : "11"
+      },
+      "application" : "DemoApp"
+    }
+  }
+}

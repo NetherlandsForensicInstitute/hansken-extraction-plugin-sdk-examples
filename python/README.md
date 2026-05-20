@@ -30,7 +30,8 @@ Before showing how to get started with a Python plugin, note that a couple of ex
 * *SecretsPlugin*: This plugin parses messages and writes the pictures contained in these messages as data. This plugin can be found in the `python/secrets`directory.
 * *QuickLookPlugin*: This plugin extracts thumbnails from thumbnail.data and index.sqlite found in com.apple.QuickLook.thumbnailcache. 
   This plugin can be found in the `python/quicklook`directory. This example is a *DeferredExtractionPlugin*.
-
+* *ChatConversationMessageCountPlugin*: This "meta-deferred" plugin matches on every `chatConversation` trace, which typically do not have a data stream.
+  The plugin queries the number of child traces of type `chatMessage`, and creates a property `chatConversation.misc.metaDeferredMessageCount` with that count.
 
 Each plugin has a couple of configuration files in order to collect the necessary dependencies, and to build and test the plugin.
 They can be used as a reference when implementing your own plugins.

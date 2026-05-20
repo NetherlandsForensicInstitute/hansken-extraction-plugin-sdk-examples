@@ -1,0 +1,14 @@
+{
+  "trace" : {
+    "id" : "0-0-a",
+    "name" : "message 10",
+    "chatMessage" : {
+      "application" : "DemoApp"
+    },
+    "data" : {
+      "raw" : {
+        "size" : 1
+      }
+    }
+  }
+}
