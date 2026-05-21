@@ -1,0 +1,7 @@
+# this file contains all recorded run profiles for processing Optional.empty.
+# this information can be useful when optimizing the plugins performance.
+duration: 0.05546910499106161
+rpc_enrich_count: 1
+rpc_enrich_duration: 1.2500601587817073E-4
+rpc_search_count: 1
+rpc_search_duration: 0.05305014402256347

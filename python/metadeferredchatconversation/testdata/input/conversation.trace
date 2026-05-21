@@ -1,0 +1,9 @@
+{
+  "trace" : {
+    "id" : "0-0",
+    "name" : "conversation 0",
+    "chatConversation" : {
+      "application" : "DemoApp"
+    }
+  }
+}
