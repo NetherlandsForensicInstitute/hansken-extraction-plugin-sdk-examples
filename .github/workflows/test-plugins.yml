@@ -66,6 +66,9 @@ jobs:
     - name: Test example plugin Python secrets
       run: cd python/secrets && tox
 
+    - name: Test example plugin testbulkmodepython
+      run: cd python/testbulkmodepython && tox
+
     - name: Test example plugin Java chat
       run: cd java/chat; mvn verify
 
