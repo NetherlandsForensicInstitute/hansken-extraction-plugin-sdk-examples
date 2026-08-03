@@ -32,6 +32,7 @@ Before showing how to get started with a Python plugin, note that a couple of ex
   This plugin can be found in the `python/quicklook`directory. This example is a *DeferredExtractionPlugin*.
 * *ChatConversationMessageCountPlugin*: This "meta-deferred" plugin matches on every `chatConversation` trace, which typically do not have a data stream.
   The plugin queries the number of child traces of type `chatMessage`, and creates a property `chatConversation.misc.metaDeferredMessageCount` with that count.
+* *TestBulkModePython*: This plugin reads the first part of the data in a `file` trace, and adds a property related to its size. This plugin runs with bulk mode enabled.
 
 Each plugin has a couple of configuration files in order to collect the necessary dependencies, and to build and test the plugin.
 They can be used as a reference when implementing your own plugins.
